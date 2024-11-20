@@ -1,6 +1,6 @@
 import { App, Astal, Gtk, Gdk } from "astal/gtk3"
 import { Variable } from "astal"
-
+import MyButton from "./MyButton"
 const time = Variable("").poll(1000, "date")
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
@@ -18,6 +18,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
                 halign={Gtk.Align.CENTER} >
                 Welcome to AGS!
             </button>
+            <MyButton/>
             <box />
             <button
                 onClick={() => print("hello")}
