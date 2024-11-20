@@ -1,11 +1,13 @@
 function MyWidget() {
-    let content
+    const labels = [
+        "label1",
+        "label2",
+        "label3"
+    ]
 
-    if (condition) {
-        content = <True />
-    } else {
-        content = <False />
-    }
-
-    return <box>{content}</box>
+    return <box>
+        {labels.map(label => (
+            <label label={label} />
+        ))}
+    </box>
 }

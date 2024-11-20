@@ -9,7 +9,7 @@ export default function Counter() {
     return <box>
         <label label={bind(count).as(num => num.toString())} />
         <button onClicked={increment}>
-            Click to increment
+            {count.get()}
         </button>
     </box>
 }
