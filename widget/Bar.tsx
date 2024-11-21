@@ -19,13 +19,14 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
                 halign={Gtk.Align.CENTER} >
                 Welcome to AGS!
             </button>
+            <BatteryPercentage />
             <box />
             {/* <button
                 onClick={() => print("hello")}
                 halign={Gtk.Align.CENTER} >
                 <label label={time()} />
             </button> */}
-            <Counter />
+            {/* <Counter /> */}
         </centerbox>
     </window>
 }

@@ -1,6 +1,7 @@
 // https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
 $theme_fg_color: "@theme_fg_color";
 $theme_bg_color: "@theme_bg_color";
+$radius: 7px;
 
 window.Bar {
     background: transparent;
@@ -17,4 +18,18 @@ window.Bar {
         border-radius: 8px;
         margin: 2px;
     }
+    label {
+        transition: 200ms;
+        padding: 0 8px;
+        margin: 2px;
+        border-radius: $radius;
+        border: 1pt solid transparent;
+    }
+    
+    .BatteryPercentage label {
+        padding-left: 0;
+        margin-left: 0;
+    }
+
 }
+
