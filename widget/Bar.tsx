@@ -20,12 +20,12 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
                 Welcome to AGS!
             </button>
             <box />
-            <Counter />
-            <button
+            {/* <button
                 onClick={() => print("hello")}
                 halign={Gtk.Align.CENTER} >
                 <label label={time()} />
-            </button>
+            </button> */}
+            <Counter />
         </centerbox>
     </window>
 }
