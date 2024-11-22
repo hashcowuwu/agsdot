@@ -1,23 +1,32 @@
-// https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
-$theme_fg_color: "@theme_fg_color";
-$theme_bg_color: "@theme_bg_color";
+@use "sass:color";
+
+$bg: #212223;
+$fg: #f1f1f1;
+$accent: #378DF7;
 $radius: 7px;
 
 window.Bar {
-    background: transparent;
-    color: #{$theme_bg_color};
+    border: none;
+    box-shadow: none;
+    background-color: $bg;
+    color: $fg;
+    font-size: 1.1em;
     font-weight: bold;
 
-    >centerbox {
-        background: #{$theme_bg_color};
-        border-radius: 10px;
-        margin: 8px;
+    button {
+        all: unset;
+        background-color: transparent;
+
+        &:hover label {
+            background-color: color.scale($fg, $alpha: -84%);
+            border-color: color.scale($accent, $alpha: -80%);
+        }
+
+        &:active label {
+            background-color: color.scale($fg, $alpha: -80%);
+        }
     }
 
-    button {
-        border-radius: 8px;
-        margin: 2px;
-    }
     label {
         transition: 200ms;
         padding: 0 8px;
@@ -25,11 +34,59 @@ window.Bar {
         border-radius: $radius;
         border: 1pt solid transparent;
     }
-    
-    .BatteryPercentage label {
+
+    .Workspaces .focused label {
+        color: $accent;
+        border-color: $accent;
+    }
+
+    .FocusedClient {
+        color: $accent;
+    }
+
+    .Media .Cover {
+        min-height: 1.2em;
+        min-width: 1.2em;
+        border-radius: $radius;
+        background-position: center;
+        background-size: contain;
+    }
+
+    .Battery label {
         padding-left: 0;
         margin-left: 0;
     }
 
-}
+    .AudioSlider {
+        & { // 使用 & {} 包裹声明
+            margin: 0 1em;
+        }
 
+        * {
+            all: unset;
+        }
+
+        icon {
+            margin-right: .6em;
+        }
+
+        trough {
+            background-color: color.scale($fg, $alpha: -80%);
+            border-radius: $radius;
+        }
+
+        highlight {
+            background-color: $accent;
+            min-height: .8em;
+            border-radius: $radius;
+        }
+
+        slider {
+            background-color: $fg;
+            border-radius: $radius;
+            min-height: 1em;
+            min-width: 1em;
+            margin: -.2em;
+        }
+    }
+}
