@@ -2,6 +2,7 @@ import { App, Astal, Gtk, Gdk } from "astal/gtk3"
 import { Variable } from "astal"
 import BatteryPercentage from "./BatteryPercentage"
 import Counter from "./Counter"
+import Time from "./Time.tsx"
 const time = Variable("").poll(1000, "date")
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
@@ -20,6 +21,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
                 Welcome to AGS!
             </button>
             <BatteryPercentage />
+            <Time />
             <box />
             {/* <button
                 onClick={() => print("hello")}
