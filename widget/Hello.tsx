@@ -1,4 +1,4 @@
-import { App, Astal, Gtk, Gdk } from "astal/gtk3"
+import {  Gtk } from "astal/gtk3"
 import { execAsync } from "astal"
 
 export default function Hello() {
