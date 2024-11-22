@@ -1,10 +1,12 @@
+#!/bin/env python
 import os
 import random
 
-getTransitionFps = lambda : random.randint(1,255)
+getTransitionFps = lambda : str(random.randint(1,255))
 
 transitionPos = [ 'center' , 'top ', 'left' ,'right','bottom','top-left','top-right','bottom-left','bottom-right']
-transitionType="rand"
+OPT = ['transition-type','transition-fps','transition-pos']
+transitionType="random"
 transitionFps=10 
 
 def getWallpaperFileDirectory():
@@ -14,16 +16,14 @@ def getWallpaperFileDirectory():
 
 wallpaperFileDirectory = getWallpaperFileDirectory()
 imgFilesList = os.listdir(wallpaperFileDirectory)
-imgId = random.randint(0,len(imgFilesList) - 1)
-
 def getWallpaperSrc():
-    return wallpaperFileDirectory + imgFilesList[imgId]
+    return wallpaperFileDirectory + random.choice(imgFilesList)
 
 
 def operationWallapper():
-    cmd = 'swww img ' + getWallpaperSrc()
+    cmd = 'swww img ' + getWallpaperSrc() + ' --' + OPT[0] + ' ' + transitionType + ' --' + OPT[1] + ' ' +  getTransitionFps()  + ' --' + OPT[2] + ' ' + random.choice(transitionPos)
     os.system(cmd)
-    print(cmd)
+    #print(cmd)
 
 operationWallapper()
 
