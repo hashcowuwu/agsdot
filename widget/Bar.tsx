@@ -5,6 +5,7 @@ import BatteryLevel from "./BatteryLevel.tsx";
 import Counter from "./Counter"
 import Time from "./Time.tsx"
 import  Hello  from "./Hello.tsx";
+import AudioSlider from "./AudioSlider.tsx"
 
 const time = Variable("").poll(1000, "date")
 
@@ -19,8 +20,8 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
         application={App}>
         <centerbox>
             <Hello /> 
-            <BatteryLevel />
             <Time />
+            <AudioSlider />
             <box />
             {/* <button
                 onClick={() => print("hello")}
